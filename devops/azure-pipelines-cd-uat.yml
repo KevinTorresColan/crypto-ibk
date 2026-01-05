@@ -1,0 +1,41 @@
+# Author: @Aldo Martinez
+# Project: DSO-FRONT
+name: '$(VersionCode).$(Rev:r)' # (Not change it)
+
+trigger: 'none'
+pr: 'none'
+
+####################
+# Resources Repository
+# ibkteam/dso-template
+# branch: master (Not change it)
+####################
+resources:
+  repositories:
+    - repository: 'ibkAzTemplates'
+      type: 'bitbucket'
+      endpoint: 'bitbucket-generic-user'
+      name: 'ibkteam/dso-libraries-template'
+      ref: 'master'
+
+  pipelines:
+    - pipeline: 'pipelineorigindev' # Name of the pipeline resource #  (Not change it)
+      source: 'PREV\Deployment\ibk-crypto\ibk-crypto_cicd-dev' # Name of the triggering pipeline
+      project: 'dopjeu2c011dsoapv01'
+      #trigger:
+      #  branches:
+      #    include:
+      #      - "refs/heads/master"
+      #      - "refs/heads/main"
+      #      - "refs/heads/hotfix/*"
+
+####################
+# Call the template of your preference
+# check the template out :
+# https://bitbucket.org/ibkteam/DSO-libraries-template/src/master/
+####################
+extends:
+  template: 'src/templates/node/cd-uat.yml@ibkAzTemplates'
+  parameters:
+    projectName: 'DSO'
+    componentName: 'ibk-crypto'

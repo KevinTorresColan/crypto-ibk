@@ -1,0 +1,54 @@
+# Author: @Aldo Martinez
+# Project: DSO-FRONT
+name: 'ci-$(VersionCode).$(Rev:r)' # (Not change it)
+
+pr: 'none'
+####################
+# Trigger after any commit to master or feature/** branch
+# tags: NO SUPPORTED BY BITBUCKET CLOUD
+####################
+trigger:
+  branches:
+    include:
+      - 'refs/heads/feature/*'
+  paths:
+    include:
+      - '*'
+    exclude:
+      - 'readme*'
+      - 'README*'
+      - 'Readme*'
+      - 'docs/*'
+
+####################
+# Resources Repository
+# ibkteam/dso-template
+# branch: master ( Not change it)
+####################
+resources:
+  repositories:
+    - repository: 'ibkAzTemplates'
+      type: 'bitbucket'
+      endpoint: 'bitbucket-generic-user'
+      name: 'ibkteam/dso-libraries-template'
+      ref: 'master'
+
+####################
+# Call the template of your preference
+# check the template out :
+# https://bitbucket.org/ibkteam/DSO-libraries-template/src/master/
+####################
+extends:
+  template: 'src/templates/node/ci.yml@ibkAzTemplates'
+  parameters:
+    projectName: 'DSO'
+    componentName: 'ibk-crypto'
+    workingDir: '.'
+    buildOutputPath: 'dist'
+    nodeVersion: '22.X'
+    flags:
+      unitTestsEnabled: true
+      sonarEnabled: false
+      sonarQualityGateEnabled: false
+      jFrogXrayEnabled: true
+      fluidAttacksEnabled: false

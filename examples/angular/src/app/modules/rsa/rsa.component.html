@@ -1,0 +1,26 @@
+<section class="rsa__container">
+  <h1 class="rsa__title">RSA</h1>
+  <hr />
+  <h3>Form</h3>
+  <app-product-form (dataChange)="handleProductData($event)" />
+  <h3>Encrypt</h3>
+  <button class="rsa__btn" (click)="encryptKeyServer()">Encrypt</button>
+  <h3>Encrypt Internal</h3>
+  <button class="rsa__btn" (click)="encryptKeyInternal()">
+    Encrypt Internal
+  </button>
+  <h3>Encrypt and Signature</h3>
+  <button class="rsa__btn" (click)="encryptAndSignature()">
+    Encrypt and Signature
+  </button>
+  <h3>Decrypt</h3>
+  <button class="rsa__btn" (click)="decrypted()">Decrypt</button>
+  <h3>Decrypt and Verify</h3>
+  <button class="rsa__btn" (click)="decryptedAndVerify()">
+    Decrypt and Verify
+  </button>
+  <h3>Signature</h3>
+  <button class="rsa__btn" (click)="signature()">Signature</button>
+  <h3>Verify</h3>
+  <button class="rsa__btn" (click)="verify()">Verify</button>
+</section>

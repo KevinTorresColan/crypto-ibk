@@ -1,0 +1,17 @@
+<app-header (algorithmChange)="handleAlgorithmChange($event)"></app-header>
+<h2>Lista de productos:</h2>
+<app-get-products [products]="products"></app-get-products>
+<br />
+<app-ec
+  *ngIf="selectedAlgorithm === 'EC'"
+  (productAdded)="handleProducts($event)"
+></app-ec>
+<app-otec
+  *ngIf="selectedAlgorithm === 'OTEC'"
+  (productAdded)="handleProducts($event)"
+></app-otec>
+<app-rsa
+  *ngIf="selectedAlgorithm === 'RSA'"
+  (productAdded)="handleProducts($event)"
+></app-rsa>
+<router-outlet />

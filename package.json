@@ -1,0 +1,56 @@
+{
+  "name": "ibk-crypto",
+  "version": "1.0.0",
+  "description": "Librería de utilidades TypeScript",
+  "type": "module",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/composition-root/container/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/composition-root/container/index.d.ts",
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.cjs.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "prepublishOnly": "npm run build",
+    "test": "echo \"Ejecutando tests...\"",
+    "prettier": "npx prettier . --write",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prepare": "husky"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "typescript",
+    "library",
+    "crypto",
+    "utilities"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^20.3.0",
+    "@commitlint/config-conventional": "^20.3.0",
+    "@eslint/js": "^9.39.2",
+    "@types/node": "^24.10.1",
+    "eslint": "^9.39.2",
+    "globals": "^17.0.0",
+    "husky": "^9.1.7",
+    "jiti": "^2.6.1",
+    "lint-staged": "^16.2.7",
+    "prettier": "^3.7.4",
+    "tslib": "^2.6.2",
+    "tsup": "^8.0.0",
+    "typescript": "^5.3.3",
+    "typescript-eslint": "^8.51.0"
+  }
+}

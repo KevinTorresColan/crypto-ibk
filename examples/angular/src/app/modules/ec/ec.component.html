@@ -1,0 +1,36 @@
+<section class="ec__container">
+  <h1 class="ec__title">EC</h1>
+  <hr />
+  <h3>Form</h3>
+  <app-product-form (dataChange)="handleProductData($event)" />
+  <h3>Encrypt</h3>
+  <button class="ec__btn" (click)="encrypt()">Encrypt</button>
+  <h3>Decrypt</h3>
+  <button class="ec__btn" (click)="decrypt()">Decrypt</button>
+  <h3>Encrypt and Signature</h3>
+  <button class="ec__btn" (click)="encryptAndSignature()">
+    Encrypt and Signature
+  </button>
+  <h3>Decrypt and Verify</h3>
+  <button class="ec__btn" (click)="decryptVerify()">Decrypt and Verify</button>
+  <h3>Signature</h3>
+  <button class="ec__btn" (click)="signature()">Signature</button>
+  <h3>Verify</h3>
+  <button class="ec__btn" (click)="verify()">Verify</button>
+  <h3>HMAC Key Server Signature</h3>
+  <button class="ec__btn" (click)="HMACKeyServerSignature()">
+    HMAC Key Server Signature
+  </button>
+  <h3>HMAC Key Internal Signature</h3>
+  <button class="ec__btn" (click)="HMACKeyInternalSignature()">
+    HMAC Key Internal Signature
+  </button>
+  <h3>HMAC Key Server Verify</h3>
+  <button class="ec__btn" (click)="HMACKeyServerVerify()">
+    HMAC Key Server Verify
+  </button>
+  <h3>HMAC Key Internal Verify</h3>
+  <button class="ec__btn" (click)="HMACKeyInternalVerify()">
+    HMAC Key Internal Verify
+  </button>
+</section>

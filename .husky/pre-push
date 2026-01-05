@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# Get the current branch
+branch=$(git rev-parse --abbrev-ref HEAD)
+
+# List of branches where tests should run
+allowed_branches="main master"
+
+# Check if the current branch is in the list
+if echo "$allowed_branches" | grep -wq "$branch"; then
+  echo "Running tests before pushing to $branch..."
+  npm test  # Or the command you use to run tests
+  if [ $? -ne 0 ]; then
+    echo "Tests failed! Push aborted."
+    exit 1
+  fi
+else
+  echo "Skipping tests on branch: $branch"
+fi
