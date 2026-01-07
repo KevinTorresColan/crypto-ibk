@@ -1,4 +1,4 @@
-import { Mode, SignMode } from '../../composition-root/container';
+import { Mode, SignMode } from '../../domain/types/client.type';
 import { arrayBufferToBase64 } from '../../shared/utils/converter.util';
 import { RSAContext } from '../context/rsa.context';
 import { RSAService } from '../service/rsa/rsa.service';
@@ -109,34 +109,30 @@ export class RSABuilder {
   // ======================================================
 
   private async generateKeyPair(): Promise<void> {
-    if (!this.localKeyPair) {
-      this.localKeyPair = (await this.deps._generateKeyPairUseCase.execute({
-        algorithm: {
-          name: 'RSA-OAEP',
-          modulusLength: 2048,
-          publicExponent: new Uint8Array([0x01, 0x00, 0x01]),
-          hash: 'SHA-256',
-        },
-        isExtractable: true,
-        keyUsages: ['encrypt', 'decrypt'],
-      })) as CryptoKeyPair;
-    }
+    this.localKeyPair ??= (await this.deps._generateKeyPairUseCase.execute({
+      algorithm: {
+        name: 'RSA-OAEP',
+        modulusLength: 2048,
+        publicExponent: new Uint8Array([0x01, 0x00, 0x01]),
+        hash: 'SHA-256',
+      },
+      isExtractable: true,
+      keyUsages: ['encrypt', 'decrypt'],
+    })) as CryptoKeyPair;
   }
 
   private async signatureKeyPair(): Promise<void> {
-    if (!this.localSignatureKeyPair) {
-      this.localSignatureKeyPair =
-        (await this.deps._generateKeyPairUseCase.execute({
-          algorithm: {
-            name: 'RSA-PSS',
-            modulusLength: 2048,
-            publicExponent: new Uint8Array([1, 0, 1]),
-            hash: 'SHA-256',
-          },
-          isExtractable: true,
-          keyUsages: [this.signMode!],
-        })) as CryptoKeyPair;
-    }
+    this.localSignatureKeyPair ??=
+      (await this.deps._generateKeyPairUseCase.execute({
+        algorithm: {
+          name: 'RSA-PSS',
+          modulusLength: 2048,
+          publicExponent: new Uint8Array([1, 0, 1]),
+          hash: 'SHA-256',
+        },
+        isExtractable: true,
+        keyUsages: [this.signMode!],
+      })) as CryptoKeyPair;
   }
 
   private async validation(): Promise<void> {

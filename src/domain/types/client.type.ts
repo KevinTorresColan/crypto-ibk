@@ -31,8 +31,8 @@ export type ECAndRSAAlgorithm =
   | HMACAlgorithm;
 
 export interface KeysType {
-  privateKey: string | ArrayBuffer;
-  publicKey: string | ArrayBuffer;
+  privateKey: string | ArrayBuffer | CryptoKey;
+  publicKey: string | ArrayBuffer | CryptoKey;
 }
 
 export interface DecryptConfig {

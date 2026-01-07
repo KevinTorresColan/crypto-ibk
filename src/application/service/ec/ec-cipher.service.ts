@@ -12,9 +12,9 @@ import { ECCipherContext } from '../../context/ec-cipher.context';
 
 export class ECCipherService {
   private aesKey!: CryptoKey;
-  private config: CipherSuiteConfig;
-  private hash: ECDSAHashAlgorithm;
-  private mode: Mode;
+  private readonly config: CipherSuiteConfig;
+  private readonly hash: ECDSAHashAlgorithm;
+  private readonly mode: Mode;
 
   private constructor(
     private readonly localKeyPair: CryptoKeyPair,

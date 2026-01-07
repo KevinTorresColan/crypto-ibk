@@ -76,12 +76,10 @@ export class OTECCipherBuilder {
   }
 
   private async ensureKeyPair(): Promise<void> {
-    if (!this.localKeyPair) {
-      this.localKeyPair = (await this.deps._generateKeyPairUseCase.execute({
-        algorithm: { name: 'ECDH', namedCurve: this.curve },
-        isExtractable: true,
-        keyUsages: ['deriveBits'],
-      })) as CryptoKeyPair;
-    }
+    this.localKeyPair ??= (await this.deps._generateKeyPairUseCase.execute({
+      algorithm: { name: 'ECDH', namedCurve: this.curve },
+      isExtractable: true,
+      keyUsages: ['deriveBits'],
+    })) as CryptoKeyPair;
   }
 }
