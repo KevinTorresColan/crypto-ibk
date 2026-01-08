@@ -1,0 +1,10 @@
+<section class="otec__container">
+  <h1 class="otec__title">OTEC</h1>
+  <hr />
+  <h3>Form</h3>
+  <app-product-form (dataChange)="handleProductData($event)" />
+  <h3>Encrypt</h3>
+  <button class="otec__btn" (click)="encrypt()">Encrypt</button>
+  <h3>Decrypt</h3>
+  <button class="otec__btn" (click)="decrypt()">Decrypt</button>
+</section>

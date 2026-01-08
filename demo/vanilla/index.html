@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vanilla JS - Demo ibk-crypto</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <!-- Header -->
+      <header class="header__container">
+        <button id="btn-ec" class="active">EC</button>
+        <button id="btn-otec">OTEC</button>
+        <button id="btn-rsa">RSA</button>
+      </header>
+
+      <!-- Products List -->
+      <section class="products-section">
+        <h2>Lista de productos:</h2>
+        <div id="products-list"></div>
+      </section>
+
+      <br />
+
+      <!-- EC Module -->
+      <section id="module-ec" class="module__container ec__container">
+        <h1 class="ec__title">EC</h1>
+        <hr />
+
+        <h3>Form</h3>
+        <div class="product-form">
+          <input type="text" id="ec-nombre" placeholder="Nombre del producto" />
+          <br />
+          <input type="number" id="ec-stock" placeholder="Stock del producto" />
+        </div>
+
+        <h3>Encrypt</h3>
+        <button class="ec__btn" id="ec-encrypt">Encrypt</button>
+
+        <h3>Decrypt</h3>
+        <button class="ec__btn" id="ec-decrypt">Decrypt</button>
+
+        <h3>Encrypt and Signature</h3>
+        <button class="ec__btn" id="ec-encrypt-signature">
+          Encrypt and Signature
+        </button>
+
+        <h3>Decrypt and Verify</h3>
+        <button class="ec__btn" id="ec-decrypt-verify">
+          Decrypt and Verify
+        </button>
+
+        <h3>Signature</h3>
+        <button class="ec__btn" id="ec-signature">Signature</button>
+
+        <h3>Verify</h3>
+        <button class="ec__btn" id="ec-verify">Verify</button>
+
+        <h3>HMAC Key Server Signature</h3>
+        <button class="ec__btn" id="ec-hmac-server-sign">
+          HMAC Key Server Signature
+        </button>
+
+        <h3>HMAC Key Internal Signature</h3>
+        <button class="ec__btn" id="ec-hmac-internal-sign">
+          HMAC Key Internal Signature
+        </button>
+
+        <h3>HMAC Key Server Verify</h3>
+        <button class="ec__btn" id="ec-hmac-server-verify">
+          HMAC Key Server Verify
+        </button>
+
+        <h3>HMAC Key Internal Verify</h3>
+        <button class="ec__btn" id="ec-hmac-internal-verify">
+          HMAC Key Internal Verify
+        </button>
+      </section>
+
+      <!-- OTEC Module -->
+      <section
+        id="module-otec"
+        class="module__container otec__container"
+        style="display: none"
+      >
+        <h1 class="otec__title">OTEC</h1>
+        <hr />
+
+        <h3>Form</h3>
+        <div class="product-form">
+          <input
+            type="text"
+            id="otec-nombre"
+            placeholder="Nombre del producto"
+          />
+          <br />
+          <input
+            type="number"
+            id="otec-stock"
+            placeholder="Stock del producto"
+          />
+        </div>
+
+        <h3>Encrypt</h3>
+        <button class="otec__btn" id="otec-encrypt">Encrypt</button>
+
+        <h3>Decrypt</h3>
+        <button class="otec__btn" id="otec-decrypt">Decrypt</button>
+      </section>
+
+      <!-- RSA Module -->
+      <section
+        id="module-rsa"
+        class="module__container rsa__container"
+        style="display: none"
+      >
+        <h1 class="rsa__title">RSA</h1>
+        <hr />
+
+        <h3>Form</h3>
+        <div class="product-form">
+          <input
+            type="text"
+            id="rsa-nombre"
+            placeholder="Nombre del producto"
+          />
+          <br />
+          <input
+            type="number"
+            id="rsa-stock"
+            placeholder="Stock del producto"
+          />
+        </div>
+
+        <h3>Encrypt</h3>
+        <button class="rsa__btn" id="rsa-encrypt-server">Encrypt</button>
+
+        <h3>Encrypt Internal</h3>
+        <button class="rsa__btn" id="rsa-encrypt-internal">
+          Encrypt Internal
+        </button>
+
+        <h3>Encrypt and Signature</h3>
+        <button class="rsa__btn" id="rsa-encrypt-signature">
+          Encrypt and Signature
+        </button>
+
+        <h3>Decrypt</h3>
+        <button class="rsa__btn" id="rsa-decrypt">Decrypt</button>
+
+        <h3>Decrypt and Verify</h3>
+        <button class="rsa__btn" id="rsa-decrypt-verify">
+          Decrypt and Verify
+        </button>
+
+        <h3>Signature</h3>
+        <button class="rsa__btn" id="rsa-signature">Signature</button>
+
+        <h3>Verify</h3>
+        <button class="rsa__btn" id="rsa-verify">Verify</button>
+      </section>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
