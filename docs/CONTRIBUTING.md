@@ -189,7 +189,7 @@ Al agregar nuevas funcionalidades:
    ): Promise<string>;
    ```
 3. **Actualiza CHANGELOG.md** con los cambios
-4. **Agrega ejemplos** en la carpeta `examples/` si aplica
+4. **Agrega ejemplos** en la carpeta `demo/` si aplica
 5. **Actualiza ARCHITECTURE.md** si cambias la estructura
 
 ## Reportar Bugs

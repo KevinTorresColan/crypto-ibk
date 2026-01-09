@@ -1,5 +1,5 @@
 {
   "**/*.ts": ["eslint --fix", "prettier --check"],
   "**/*.{js,json,md,css}": ["prettier --check"],
-  "examples/**": []
+  "demo/**": []
 }

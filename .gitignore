@@ -31,7 +31,7 @@ coverage/
 .env.local
 .env.*.local
 
-#examples
-examples/**/dist/
-examples/**/node_modules/
-examples/**/.env
+#demo
+demo/**/dist/
+demo/**/node_modules/
+demo/**/.env

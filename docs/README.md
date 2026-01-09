@@ -281,12 +281,12 @@ const key = CryptoClient.GetKey('nombre-clave');
 
 ## Ejemplos
 
-Revisa la carpeta `examples/` para ver implementaciones completas en:
+Revisa la carpeta `demo/` para ver implementaciones completas en:
 
-- **Angular**: [examples/angular](../examples/angular)
-- **React**: [examples/reactjs](../examples/reactjs)
-- **Vanilla JS**: [examples/vanilla](../examples/vanilla)
-- **Backend (Node.js)**: [examples/servidor](../examples/servidor)
+- **Angular**: [demo/angular](../demo/angular)
+- **React**: [demo/reactjs](../demo/reactjs)
+- **Vanilla JS**: [demo/vanilla](../demo/vanilla)
+- **Backend (Node.js)**: [demo/servidor](../demo/servidor)
 
 ## Documentación
 

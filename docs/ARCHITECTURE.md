@@ -12,7 +12,7 @@
 ├── ROADMAP.md          # Planificación futura
 ├── SECURITY.md         # Política de seguridad y reporte de vulnerabilidades
 │
-📁 examples/            # Ejemplos de implementación
+📁 demo/            # Ejemplos de implementación
 │
 ├── 📁 angular/         # Implementación en Angular
 ├── 📁 reactjs/         # Implementación en React

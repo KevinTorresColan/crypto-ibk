@@ -8,7 +8,7 @@ const config: Config = {
     '**/__tests__/**/*.+(ts|tsx|js)',
     '**/?(*.)+(spec|test).+(ts|tsx|js)',
   ],
-  testPathIgnorePatterns: ['/node_modules/', '/examples/', '/dist/'],
+  testPathIgnorePatterns: ['/node_modules/', '/demo/', '/dist/'],
   transform: {
     '^.+\\.(ts|tsx)$': [
       'ts-jest',

@@ -125,25 +125,25 @@ npm run prettier
 
 El proyecto incluye ejemplos completos para diferentes frameworks:
 
-- **[Angular](examples/angular/)**: Integración con Angular 15+
-- **[React](examples/reactjs/)**: Implementación con React y Vite
-- **[Vanilla JavaScript](examples/vanilla/)**: Uso básico sin frameworks
-- **[Servidor Node.js](examples/servidor/)**: Ejemplos del lado del servidor
+- **[Angular](demo/angular/)**: Integración con Angular 15+
+- **[React](demo/reactjs/)**: Implementación con React y Vite
+- **[Vanilla JavaScript](demo/vanilla/)**: Uso básico sin frameworks
+- **[Servidor Node.js](demo/servidor/)**: Ejemplos del lado del servidor
 
 ### Ejecutar Ejemplos
 
 ```bash
 # Angular
-cd examples/angular && npm install && npm start
+cd demo/angular && npm install && npm start
 
 # React
-cd examples/reactjs && npm install && npm run dev
+cd demo/reactjs && npm install && npm run dev
 
 # Vanilla
-cd examples/vanilla && npm install && npm run dev
+cd demo/vanilla && npm install && npm run dev
 
 # Servidor
-cd examples/servidor && npm install && npm start
+cd demo/servidor && npm install && npm start
 ```
 
 ## 🛡️ Fundamentos Criptográficos
