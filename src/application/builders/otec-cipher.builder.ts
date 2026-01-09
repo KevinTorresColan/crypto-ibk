@@ -2,7 +2,7 @@ import { Mode } from '../../domain/types/client.type';
 import { CipherSuite, ECCurve } from '../../domain/types/EC.types';
 import { arrayBufferToBase64 } from '../../shared/utils/converter.util';
 import { ECCipherContext } from '../context/ec-cipher.context';
-import { OTECCipherUseCase } from '../service/ec/otec-cipher.service';
+import { OTECCipherService } from '../service/ec/otec-cipher.service';
 import { transformKeyFormat } from '../utils/key-format.util';
 
 export class OTECCipherBuilder {
@@ -58,14 +58,14 @@ export class OTECCipherBuilder {
     return arrayBufferToBase64(spki as ArrayBuffer);
   }
 
-  async build(): Promise<OTECCipherUseCase> {
+  async build(): Promise<OTECCipherService> {
     if (this.used) throw new Error('Builder already used');
     if (!this.remotePublicKey) throw new Error('Remote public key not set');
 
     await this.ensureKeyPair();
     this.used = true;
 
-    return OTECCipherUseCase._create({
+    return OTECCipherService._create({
       localKeyPair: this.localKeyPair!,
       remotePublicKey: this.remotePublicKey,
       cipherSuite: this.cipherSuite,

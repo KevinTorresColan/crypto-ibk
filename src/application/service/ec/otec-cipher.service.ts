@@ -8,7 +8,7 @@ import { Mode } from '../../../domain/types/client.type';
 import { arrayBufferToBase64 } from '../../../shared/utils/converter.util';
 import { ECCipherContext } from '../../context/ec-cipher.context';
 
-export class OTECCipherUseCase {
+export class OTECCipherService {
   private state: 'INITIALIZED' | 'FINALIZED' = 'INITIALIZED';
   private aesKey!: CryptoKey;
   private config: CipherSuiteConfig;
@@ -33,8 +33,8 @@ export class OTECCipherUseCase {
     mode: Mode;
     curve: ECCurve;
     deps: ECCipherContext;
-  }): OTECCipherUseCase {
-    return new OTECCipherUseCase(
+  }): OTECCipherService {
+    return new OTECCipherService(
       params.localKeyPair,
       params.remotePublicKey,
       params.cipherSuite,
