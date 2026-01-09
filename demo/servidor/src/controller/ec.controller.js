@@ -33,7 +33,7 @@ const getServerPrivateKeyEC = () => {
 };
 
 // ============================================================
-// Desencrypt + PEM + verify
+// Desencrypt + verify
 // ============================================================
 export const desencryptAndVerify = async (req, res) => {
   try {
@@ -206,7 +206,7 @@ export const desencryptAndVerify = async (req, res) => {
 };
 
 // ============================================================
-// Encrypt + PEM + signature
+// Encrypt + signature
 // ============================================================
 export const EncryptedAndVerifySendTarjet = async (req, res) => {
   try {
