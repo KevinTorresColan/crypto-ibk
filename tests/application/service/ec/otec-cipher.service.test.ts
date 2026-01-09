@@ -1,11 +1,11 @@
 import { describe, expect, it, beforeEach } from '@jest/globals';
-import { OTECCipherUseCase } from '../../../../src/application/service/ec/otec-cipher.service';
+import { OTECCipherService } from '../../../../src/application/service/ec/otec-cipher.service';
 import { CipherSuite, ECCurve } from '../../../../src/domain/types/EC.types';
 import { Mode } from '../../../../src/domain/types/client.type';
 import { ECCipherContext } from '../../../../src/application/context/ec-cipher.context';
 
-describe('OTECCipherUseCase', () => {
-  let otecService: OTECCipherUseCase;
+describe('OTECCipherService', () => {
+  let otecService: OTECCipherService;
   let mockLocalKeyPair: CryptoKeyPair;
   let mockRemotePublicKey: CryptoKey;
   let mockAESKey: CryptoKey;
@@ -58,7 +58,7 @@ describe('OTECCipherUseCase', () => {
       },
     } as unknown as ECCipherContext;
 
-    otecService = OTECCipherUseCase._create({
+    otecService = OTECCipherService._create({
       localKeyPair: mockLocalKeyPair,
       remotePublicKey: mockRemotePublicKey,
       cipherSuite: CipherSuite.AES_128_GCM_SHA256,
@@ -71,11 +71,11 @@ describe('OTECCipherUseCase', () => {
   describe('_create', () => {
     it('should create instance successfully', () => {
       expect(otecService).toBeDefined();
-      expect(otecService).toBeInstanceOf(OTECCipherUseCase);
+      expect(otecService).toBeInstanceOf(OTECCipherService);
     });
 
     it('should create instance with P384 curve', () => {
-      const service = OTECCipherUseCase._create({
+      const service = OTECCipherService._create({
         localKeyPair: mockLocalKeyPair,
         remotePublicKey: mockRemotePublicKey,
         cipherSuite: CipherSuite.AES_256_GCM_SHA256,
@@ -85,11 +85,11 @@ describe('OTECCipherUseCase', () => {
       });
 
       expect(service).toBeDefined();
-      expect(service).toBeInstanceOf(OTECCipherUseCase);
+      expect(service).toBeInstanceOf(OTECCipherService);
     });
 
     it('should create instance with P521 curve', () => {
-      const service = OTECCipherUseCase._create({
+      const service = OTECCipherService._create({
         localKeyPair: mockLocalKeyPair,
         remotePublicKey: mockRemotePublicKey,
         cipherSuite: CipherSuite.AES_256_GCM_SHA256,
@@ -99,7 +99,7 @@ describe('OTECCipherUseCase', () => {
       });
 
       expect(service).toBeDefined();
-      expect(service).toBeInstanceOf(OTECCipherUseCase);
+      expect(service).toBeInstanceOf(OTECCipherService);
     });
   });
 
@@ -159,7 +159,7 @@ describe('OTECCipherUseCase', () => {
 
   describe('doFinal - decryption', () => {
     beforeEach(() => {
-      otecService = OTECCipherUseCase._create({
+      otecService = OTECCipherService._create({
         localKeyPair: mockLocalKeyPair,
         remotePublicKey: mockRemotePublicKey,
         cipherSuite: CipherSuite.AES_128_GCM_SHA256,
@@ -196,7 +196,7 @@ describe('OTECCipherUseCase', () => {
 
   describe('cipher suite configurations', () => {
     it('should work with AES_256_GCM_SHA256', async () => {
-      const service = OTECCipherUseCase._create({
+      const service = OTECCipherService._create({
         localKeyPair: mockLocalKeyPair,
         remotePublicKey: mockRemotePublicKey,
         cipherSuite: CipherSuite.AES_256_GCM_SHA256,
@@ -211,7 +211,7 @@ describe('OTECCipherUseCase', () => {
     });
 
     it('should work with AES_128_GCM_SHA256', async () => {
-      const service = OTECCipherUseCase._create({
+      const service = OTECCipherService._create({
         localKeyPair: mockLocalKeyPair,
         remotePublicKey: mockRemotePublicKey,
         cipherSuite: CipherSuite.AES_128_GCM_SHA256,
@@ -228,7 +228,7 @@ describe('OTECCipherUseCase', () => {
 
   describe('curve bit length handling', () => {
     it('should handle P256 curve (256 bits)', async () => {
-      const service = OTECCipherUseCase._create({
+      const service = OTECCipherService._create({
         localKeyPair: mockLocalKeyPair,
         remotePublicKey: mockRemotePublicKey,
         cipherSuite: CipherSuite.AES_128_GCM_SHA256,
@@ -243,7 +243,7 @@ describe('OTECCipherUseCase', () => {
     });
 
     it('should handle P384 curve (384 bits)', async () => {
-      const service = OTECCipherUseCase._create({
+      const service = OTECCipherService._create({
         localKeyPair: mockLocalKeyPair,
         remotePublicKey: mockRemotePublicKey,
         cipherSuite: CipherSuite.AES_128_GCM_SHA256,
@@ -258,7 +258,7 @@ describe('OTECCipherUseCase', () => {
     });
 
     it('should handle P521 curve (521 bits)', async () => {
-      const service = OTECCipherUseCase._create({
+      const service = OTECCipherService._create({
         localKeyPair: mockLocalKeyPair,
         remotePublicKey: mockRemotePublicKey,
         cipherSuite: CipherSuite.AES_128_GCM_SHA256,
@@ -299,7 +299,7 @@ describe('OTECCipherUseCase', () => {
     });
 
     it('should extract IV for decryption', async () => {
-      const service = OTECCipherUseCase._create({
+      const service = OTECCipherService._create({
         localKeyPair: mockLocalKeyPair,
         remotePublicKey: mockRemotePublicKey,
         cipherSuite: CipherSuite.AES_128_GCM_SHA256,
